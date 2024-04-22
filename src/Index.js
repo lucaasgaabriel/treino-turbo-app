@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Image, StyleSheet } from 'react-native';
 
 const Index = () => {
   return (
     <View style={styles.container}>
+      <Image
+        source={require('../img/TreinoTurboLogobyDesigner.png')}
+        style={styles.logo}
+      />
       <Text style={styles.title}>Tela de Login</Text>
       <TextInput
         style={styles.input}
@@ -25,6 +29,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    borderRadius: 50, // faz a imagem ser redonda
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,

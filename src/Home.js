@@ -4,7 +4,7 @@ import styles from './stylesGeral.js';
 
 // Dados dos treinos para o carrossel
 const treinosCarousel = [
-  require('../img/TreinoTurboBrandbyDesigner.png'),
+  require('../img/image.png'),
   // Adicione mais treinos conforme necessário
 ];
 
@@ -12,16 +12,27 @@ const treinosCarousel = [
 const treinosCards = [
   { 
     titulo: 'Treino de Pernas',
-    descricao: 'Treino focado nos músculos das pernas para fortalecimento e definição.',
-    imagem: require('../img/image.jpg')
+    descricao: 'Treino focado nos músculos ...',
+    imagem: require('../img/Peso.png')
   },
   { 
     titulo: 'Treino de Braços',
-    descricao: 'Treino focado nos músculos dos braços para ganho de massa muscular.',
-    imagem: require('../img/image.jpg')
+    descricao: 'Treino focado nos músculos...',
+    imagem: require('../img/Peso.png')
+  },
+  { 
+    titulo: 'Treino de Triceps',
+    descricao: 'Treino focado nos músculos ...',
+    imagem: require('../img/image.png')
+  },
+  { 
+    titulo: 'Treino de Bicpes',
+    descricao: 'Treino focado nos músculos...',
+    imagem: require('../img/image.png')
   },
   // Adicione mais treinos conforme necessário
 ];
+
 
 const Home = () => {
   return (
@@ -29,7 +40,7 @@ const Home = () => {
       <ScrollView>
         <View style={styles.banner}>
           {/* Carrossel de imagens */}
-          <ScrollView horizontal={true}>
+          <ScrollView horizontal={true} contentContainerStyle={styles.carouselContainer}>
             {treinosCarousel.map((imagem, index) => (
               <Image key={index} source={imagem} style={styles.imageCarousel} />
             ))}
