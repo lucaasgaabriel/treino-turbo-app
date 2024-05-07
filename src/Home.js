@@ -1,5 +1,6 @@
+// Importe os TouchableOpacity para envolver os itens do menu
 import React from 'react'; 
-import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import styles from './stylesGeral.js';
 
 // Dados dos treinos para o carrossel
@@ -33,8 +34,7 @@ const treinosCards = [
   // Adicione mais treinos conforme necessário
 ];
 
-
-const Home = () => {
+const Home = ({ onSobre, onContato }) => {
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -63,9 +63,12 @@ const Home = () => {
       </ScrollView>
       {/* Menu de navegação */}
       <View style={styles.menu}>
-        <Text style={styles.menuItem}>Home</Text>
-        <Text style={styles.menuItem}>Sobre</Text>
-        <Text style={styles.menuItem}>Contato</Text>
+        <TouchableOpacity onPress={onSobre}>
+          <Text style={styles.menuItem}>Sobre</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onContato}>
+          <Text style={styles.menuItem}>Contato</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

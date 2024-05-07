@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, Button, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Index = () => {
+const Index = ({ onLogin }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -18,7 +18,12 @@ const Index = () => {
         placeholder="Digite sua senha"
         secureTextEntry={true}
       />
-      <Button title="Login" onPress={() => {}} />
+      <TouchableOpacity style={styles.loginButton} onPress={onLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.registerButton}>
+        <Text style={styles.buttonText}>Cadastro</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,6 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
+
   },
   logo: {
     width: 100,
@@ -47,6 +53,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 10,
     padding: 10,
+  },
+  loginButton: {
+    backgroundColor: '#007bff',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  registerButton: {
+    backgroundColor: '#28a745',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    textAlign: 'center',
   },
 });
 
