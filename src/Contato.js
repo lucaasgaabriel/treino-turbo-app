@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity, Image } from 'react-native'; // Adicione esta linha
 import stylesGeral from './stylesGeral'; // Importa o estilo geral
+import stylesContato from './styleContato'; // Importa os estilos locais
 
 const Contato = ({ onSobre, onContato, onHome }) => {
   const [nome, setNome] = useState('');
@@ -14,28 +15,42 @@ const Contato = ({ onSobre, onContato, onHome }) => {
 
   return (
     <View style={stylesGeral.container}>
-      <Text style={localStyles.title}>Entre em Contato</Text>
-      <TextInput
-        style={stylesGeral.input}
-        placeholder="Nome"
-        value={nome}
-        onChangeText={setNome}
-      />
-      <TextInput
-        style={stylesGeral.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-        keyboardType="email-address"
-      />
-      <TextInput
-        style={[stylesGeral.input, localStyles.textArea]}
-        placeholder="Mensagem"
-        value={mensagem}
-        onChangeText={setMensagem}
-        multiline
-      />
-      <Button title="Enviar Mensagem" onPress={handleEnviarMensagem} />
+      {/* Conteúdo da página de Contato */}
+      <View style={stylesContato.container}>
+        {/* Coluna 1: Imagem */}
+        <View style={stylesContato.imageColumn}>
+          <Image
+            source={require('../img/TreinoTurboLogobyDesigner.png')} // Substitua pelo caminho da sua imagem de contato
+            style={stylesContato.image}
+          />
+        </View>
+
+        {/* Coluna 2: Formulário */}
+        <View style={stylesContato.formColumn}>
+          <Text style={stylesContato.title}>Entre em Contato</Text>
+          <TextInput
+            style={stylesGeral.input}
+            placeholder="Nome"
+            value={nome}
+            onChangeText={setNome}
+          />
+          <TextInput
+            style={stylesGeral.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            keyboardType="email-address"
+          />
+          <TextInput
+            style={[stylesGeral.input, stylesContato.textArea]}
+            placeholder="Mensagem"
+            value={mensagem}
+            onChangeText={setMensagem}
+            multiline
+          />
+          <Button title="Enviar Mensagem" onPress={handleEnviarMensagem} />
+        </View>
+      </View>
 
       {/* Menu */}
       <View style={stylesGeral.menu}>
@@ -52,18 +67,5 @@ const Contato = ({ onSobre, onContato, onHome }) => {
     </View>
   );
 };
-
-const localStyles = StyleSheet.create({
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  textArea: {
-    height: 120,
-    textAlignVertical: 'top',
-  },
-});
 
 export default Contato;

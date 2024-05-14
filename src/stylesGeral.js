@@ -1,23 +1,24 @@
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    padding: 20,
+    backgroundColor: 'white',
+
   },
   banner: {
     height: 200,
-    marginBottom: 20,
+    marginBottom: 25,
   },
   carouselContainer: {
     alignItems: 'center',
   },
   imageCarousel: {
-    width: 300,
+    width: 450,
     height: 200,
     marginRight: 10,
   },
   cardContainer: {
     marginBottom: 20,
+    padding: 20,
   },
   cardRow: {
     flexDirection: 'row',
@@ -30,7 +31,7 @@ const styles = {
   },
   cardBackgroundImage: {
     width: '100%',
-    height: 100, // Defina a altura desejada
+    height: 200, // Defina a altura desejada
     resizeMode: 'cover', // Garante que a imagem preencha todo o espaço do contêiner
   },
   cardContent: {
@@ -52,16 +53,23 @@ const styles = {
   },
   menu: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#333', // Cor de fundo escura
-    paddingVertical: 15, // Espaçamento vertical
+    backgroundColor: '#333',
+    paddingVertical: 30,
+    paddingHorizontal: 30,
+    width: '100%',
+    position: 'absolute',
+    bottom: 0,
+    justifyContent: 'space-between', // Alterado de 'space-between' para 'space-around' para espaçar uniformemente os itens
+    borderRadius: 20, // Adicionado para arredondar as bordas do menu
+    padding: 10,
+   
   },
   menuItem: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff', // Cor do texto
-    textTransform: 'uppercase', // Transforma o texto em maiúsculas
-  },
+    color: '#fff',
+    textTransform: 'uppercase',
+  },  
 };
 
 
