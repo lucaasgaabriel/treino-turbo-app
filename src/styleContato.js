@@ -16,7 +16,7 @@ const stylesContato = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-    resizeMode: 'cover',
+    resizeMode: 'absolut',
   },
   formColumn: {
     flex: 1,
@@ -30,6 +30,20 @@ const stylesContato = StyleSheet.create({
   textArea: {
     height: 120,
     textAlignVertical: 'top',
+  },
+ Button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 20,
+    marginBottom: 10,
+    height: 50,
+    width: 180,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 15,
+    textAlign: 'center',
   },
 });
 

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const stylesSobre = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#050d9e',
+    backgroundColor: 'black',
   },
   header: {
     justifyContent: 'center',
@@ -52,10 +52,10 @@ const stylesSobre = StyleSheet.create({
     marginBottom: 20,
   },
   timelineIcon: {
-    width: 30,
-    height: 30,
+    width: 50,
+    height: 50,
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 50,
     marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center',

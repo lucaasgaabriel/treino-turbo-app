@@ -20,7 +20,7 @@ const Contato = ({ onSobre, onContato, onHome }) => {
         {/* Coluna 1: Imagem */}
         <View style={stylesContato.imageColumn}>
           <Image
-            source={require('../img/TreinoTurboLogobyDesigner.png')} // Substitua pelo caminho da sua imagem de contato
+            source={require('../img/logo_Treino_Turbo_w_nome_azulv1.png')} // Substitua pelo caminho da sua imagem de contato
             style={stylesContato.image}
           />
         </View>
@@ -48,7 +48,9 @@ const Contato = ({ onSobre, onContato, onHome }) => {
             onChangeText={setMensagem}
             multiline
           />
-          <Button title="Enviar Mensagem" onPress={handleEnviarMensagem} />
+      <TouchableOpacity style={stylesContato.Button}>
+        <Text style={stylesContato.buttonText} onPress={handleEnviarMensagem}>Enviar Mensagem</Text>
+      </TouchableOpacity>
         </View>
       </View>
 

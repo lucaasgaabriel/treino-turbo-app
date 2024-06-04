@@ -1,6 +1,5 @@
-// Importe os TouchableOpacity para envolver os itens do menu
-import React from 'react'; 
-import { View, Text, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, Image, TouchableOpacity, Modal, TextInput, Button } from 'react-native';
 import styles from './stylesGeral.js';
 
 // Dados dos treinos para o carrossel
@@ -35,6 +34,14 @@ const treinosCards = [
 ];
 
 const Home = ({ onSobre, onContato }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [novoTreino, setNovoTreino] = useState({ titulo: '', descricao: '' });
+
+  const handleSaveTreino = () => {
+    // Adicione a lógica para salvar o novo treino
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -70,6 +77,45 @@ const Home = ({ onSobre, onContato }) => {
           <Text style={styles.menuItem}>Contato</Text>
         </TouchableOpacity>
       </View>
+      {/* Botão flutuante */}
+      <TouchableOpacity
+        style={styles.floatingButton}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.floatingButtonText}>+</Text>
+      </TouchableOpacity>
+
+      {/* Modal para criar novo treino */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <Text style={styles.modalTitle}>Novo Treino</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Título do Treino"
+              value={novoTreino.titulo}
+              onChangeText={(text) => setNovoTreino({ ...novoTreino, titulo: text })}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Descrição do Treino"
+              value={novoTreino.descricao}
+              onChangeText={(text) => setNovoTreino({ ...novoTreino, descricao: text })}
+            />
+            <TouchableOpacity style={styles.Button} onPress={handleSaveTreino}>
+              <Text style={styles.buttonText}>Salvar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.Button} onPress={() => setModalVisible(false)}>
+              <Text style={styles.buttonText}>Cancelar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
