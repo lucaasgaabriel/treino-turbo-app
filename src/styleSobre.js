@@ -15,30 +15,20 @@ const stylesSobre = StyleSheet.create({
     height: 100,
     marginBottom: 20,
   },
-  content: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    paddingHorizontal: 20,
-    paddingTop: 20,
+  Title: {
+    color: 'white',
+    fontSize: 36,
+    fontWeight: 'bold',
   },
-  imageContainer: {
-    flex: 1,
-    marginRight: 10,
+  timelineHeader: {
+    backgroundColor: '#333',
+    padding: 10,
+    marginTop: 20,
   },
-  image: {
-    width: '100%',
-    height: 200,
-    marginBottom: 10,
-  },
-  textContainer: {
-    flex: 1,
-    marginLeft: 10,
-  },
-  text: {
-    color: '#fff',
-    fontSize: 16,
-    marginBottom: 10,
+  timelineHeaderText: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   timeline: {
     flex: 1,
@@ -50,10 +40,20 @@ const stylesSobre = StyleSheet.create({
   timelineItem: {
     flexDirection: 'row',
     marginBottom: 20,
+    alignItems: 'center',
   },
   timelineIcon: {
     width: 50,
     height: 50,
+    backgroundColor: '#808080',
+    borderRadius: 50,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  timelineIcon02: {
+    width: 150,
+    height: 20,
     backgroundColor: '#fff',
     borderRadius: 50,
     marginRight: 10,
@@ -64,6 +64,26 @@ const stylesSobre = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
   },
+  contactInfo: {
+    flexDirection: 'row',
+    marginTop: 20,
+    paddingHorizontal: 20,
+    marginTop: 100,
+  },
+  mapContainer: {
+    flex: 1,
+    backgroundColor: '#ddd', // Cor de fundo temporária para o mapa
+    marginRight: 20,
+    height: 200,
+  },
+  contactDetails: {
+    flex: 1,
+  },
+  contactText: {
+    color: '#fff',
+    fontSize: 16,
+    marginBottom: 10,
+  },
 });
 
-export default stylesSobre; // Renomeando a exportação para stylesSobre
+export default stylesSobre;

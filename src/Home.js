@@ -35,11 +35,17 @@ const treinosCards = [
 
 const Home = ({ onSobre, onContato }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [novoTreino, setNovoTreino] = useState({ titulo: '', descricao: '' });
+  const [novoTreino, setNovoTreino] = useState({ titulo: '', descricao: '', observacoes: '', imagem: null });
+  const [selectedTreino, setSelectedTreino] = useState(null);
 
   const handleSaveTreino = () => {
     // Adicione a lógica para salvar o novo treino
     setModalVisible(false);
+  };
+
+  const handleTreinoPress = (treino) => {
+    setSelectedTreino(treino);
+    setModalVisible(true);
   };
 
   return (
@@ -53,21 +59,25 @@ const Home = ({ onSobre, onContato }) => {
             ))}
           </ScrollView>
         </View>
+
         <View style={styles.cardContainer}>
           {/* Grade de cartões */}
           <View style={styles.cardRow}>
             {treinosCards.map((treino, index) => (
               <View key={index} style={styles.card}>
-                <Image source={treino.imagem} style={styles.cardBackgroundImage} />
-                <View style={styles.cardContent}>
-                  <Text style={styles.cardTitle}>{treino.titulo}</Text>
-                  <Text style={styles.cardDescription}>{treino.descricao}</Text>
-                </View>
+                <TouchableOpacity onPress={() => handleTreinoPress(treino)}>
+                  <Image source={treino.imagem} style={styles.cardBackgroundImage} />
+                  <View style={styles.cardContent}>
+                    <Text style={styles.cardTitle}>{treino.titulo}</Text>
+                    <Text style={styles.cardDescription}>{treino.descricao}</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             ))}
           </View>
         </View>
       </ScrollView>
+
       {/* Menu de navegação */}
       <View style={styles.menu}>
         <TouchableOpacity onPress={onSobre}>
@@ -77,15 +87,8 @@ const Home = ({ onSobre, onContato }) => {
           <Text style={styles.menuItem}>Contato</Text>
         </TouchableOpacity>
       </View>
-      {/* Botão flutuante */}
-      <TouchableOpacity
-        style={styles.floatingButton}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.floatingButtonText}>+</Text>
-      </TouchableOpacity>
 
-      {/* Modal para criar novo treino */}
+      {/* Modal para exibir detalhes do treino selecionado */}
       <Modal
         animationType="slide"
         transparent={true}
@@ -94,28 +97,58 @@ const Home = ({ onSobre, onContato }) => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Novo Treino</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Título do Treino"
-              value={novoTreino.titulo}
-              onChangeText={(text) => setNovoTreino({ ...novoTreino, titulo: text })}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Descrição do Treino"
-              value={novoTreino.descricao}
-              onChangeText={(text) => setNovoTreino({ ...novoTreino, descricao: text })}
-            />
-            <TouchableOpacity style={styles.Button} onPress={handleSaveTreino}>
-              <Text style={styles.buttonText}>Salvar</Text>
-            </TouchableOpacity>
+            {selectedTreino ? (
+              <>
+                <Text style={styles.modalTitle}>{selectedTreino.titulo}</Text>
+                <Text style={styles.modalDescription}>{selectedTreino.descricao}</Text>
+              </>
+            ) : (
+              <>
+                <Text style={styles.modalTitle}>Novo Treino</Text>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Título do Treino"
+                  value={novoTreino.titulo}
+                  onChangeText={(text) => setNovoTreino({ ...novoTreino, titulo: text })}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Descrição do Treino"
+                  value={novoTreino.descricao}
+                  onChangeText={(text) => setNovoTreino({ ...novoTreino, descricao: text })}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="Observações"
+                  value={novoTreino.observacoes}
+                  onChangeText={(text) => setNovoTreino({ ...novoTreino, observacoes: text })}
+                />
+                {/* Botão para escolher uma imagem */}
+                <TouchableOpacity
+                  style={styles.Button}
+                  onPress={() => console.log("Escolher imagem")} // Adicione a lógica para escolher uma imagem
+                >
+                  <Text style={styles.buttonText}>Escolher Imagem</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.Button} onPress={handleSaveTreino}>
+                  <Text style={styles.buttonText}>Salvar</Text>
+                </TouchableOpacity>
+              </>
+            )}
             <TouchableOpacity style={styles.Button} onPress={() => setModalVisible(false)}>
               <Text style={styles.buttonText}>Cancelar</Text>
             </TouchableOpacity>
           </View>
         </View>
       </Modal>
+
+      {/* Botão flutuante */}
+      <TouchableOpacity
+        style={styles.floatingButton}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.floatingButtonText}>+</Text>
+      </TouchableOpacity>
     </View>
   );
 };
