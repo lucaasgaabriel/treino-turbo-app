@@ -9,11 +9,13 @@ const Index = ({ onLogin }) => {
         source={require('../img/logo_Treino_Turbo.png')}
         style={styles.logo}
       />
-      <Text style={styles.title}>Tela de Login</Text>
+      <Text style={styles.title}>Treino Turbo</Text>
+      <Text style={styles.titleLogin}>Usuário</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite seu usuário"
       />
+      <Text style={styles.titleSenha}>Senha</Text>
       <TextInput
         style={styles.input}
         placeholder="Digite sua senha"
@@ -25,6 +27,7 @@ const Index = ({ onLogin }) => {
       <TouchableOpacity style={styles.registerButton}>
         <Text style={styles.buttonText}>Cadastro</Text>
       </TouchableOpacity>
+      <Text style={styles.titleFooter}>Designed by Treino Turbo ©</Text>
     </View>
   );
 };

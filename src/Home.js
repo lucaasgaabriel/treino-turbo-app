@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import { View, Text, ScrollView, Image, TouchableOpacity, Modal, TextInput, Button } from 'react-native';
 import styles from './stylesGeral.js';
 
 // Dados dos treinos para o carrossel
 const treinosCarousel = [
-  require('../img/image.png'),
+  require('../img/logo_Treino_Turbo_w_nome_brancov2.png'),
   // Adicione mais treinos conforme necessário
 ];
 
@@ -13,27 +14,21 @@ const treinosCards = [
   { 
     titulo: 'Treino de Pernas',
     descricao: 'Treino focado nos músculos ...',
-    imagem: require('../img/Peso.png')
+    imagem: require('../img/treino-perna.jpg')
   },
   { 
     titulo: 'Treino de Braços',
     descricao: 'Treino focado nos músculos...',
-    imagem: require('../img/Peso.png')
+    imagem: require('../img/treino-braco.jpg')
   },
   { 
-    titulo: 'Treino de Triceps',
+    titulo: 'Treino de Abdômen',
     descricao: 'Treino focado nos músculos ...',
-    imagem: require('../img/image.png')
+    imagem: require('../img/treino-abdomen.jpg')
   },
-  { 
-    titulo: 'Treino de Bicpes',
-    descricao: 'Treino focado nos músculos...',
-    imagem: require('../img/image.png')
-  },
-  // Adicione mais treinos conforme necessário
 ];
 
-const Home = ({ onSobre, onContato }) => {
+const Home = ({ onHome, onSobre, onContato }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [novoTreino, setNovoTreino] = useState({ titulo: '', descricao: '', observacoes: '', imagem: null });
   const [selectedTreino, setSelectedTreino] = useState(null);
@@ -59,7 +54,6 @@ const Home = ({ onSobre, onContato }) => {
             ))}
           </ScrollView>
         </View>
-
         <View style={styles.cardContainer}>
           {/* Grade de cartões */}
           <View style={styles.cardRow}>
@@ -81,10 +75,13 @@ const Home = ({ onSobre, onContato }) => {
       {/* Menu de navegação */}
       <View style={styles.menu}>
         <TouchableOpacity onPress={onSobre}>
-          <Text style={styles.menuItem}>Sobre</Text>
+          <Ionicons name="information-circle-outline" size={24} color="white" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onHome}>
+          <Ionicons name="home-outline" size={24} color="white" />
         </TouchableOpacity>
         <TouchableOpacity onPress={onContato}>
-          <Text style={styles.menuItem}>Contato</Text>
+          <Ionicons name="mail-outline" size={24} color="white" />
         </TouchableOpacity>
       </View>
 

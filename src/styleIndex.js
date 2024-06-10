@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 36, // Aumentei o tamanho do título
+    fontSize: 30, // Aumentei o tamanho do título
     marginBottom: 20,
     fontWeight: 'bold', // Deixei o título em negrito
     /*textShadowColor: 'rgba(0, 0, 0, 0.75)', // Sombra de texto preta
@@ -25,9 +25,20 @@ const styles = StyleSheet.create({
     color: '#333', // Cor do título
     textAlign: 'center', // Centralizar o texto
   },
+  titleLogin: {
+    marginRight: '75%',
+    paddingLeft: '5%'
+  },
+  titleSenha: {
+    marginRight: '75%',
+    paddingLeft: '2%'
+  },
+  titleFooter: {
+    marginTop: '15%'
+  },
   input: {
-    width: '100%',
-    height: 40,
+    width: '90%',
+    height: 50,
     borderColor: 'gray',
     borderWidth: 2,
     marginBottom: 10,
@@ -35,15 +46,17 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: '#007bff',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 5,
-    marginBottom: 10,
-  },
-  registerButton: {
     backgroundColor: '#28a745',
     paddingVertical: 15,
-    paddingHorizontal: 30,
+    paddingHorizontal: 140,
+    borderRadius: 5,
+    marginBottom: 10,
+    marginTop: 20,
+  },
+  registerButton: {
+    backgroundColor: '#007bff',
+    paddingVertical: 15,
+    paddingHorizontal: 125,
     borderRadius: 5,
   },
   buttonText: {
