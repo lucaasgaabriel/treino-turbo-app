@@ -9,17 +9,27 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~3.2.1",
+    "@react-navigation/native": "^6.1.17",
+    "@react-navigation/stack": "^6.3.29",
     "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "expo-status-bar": "~1.11.1",
+    "express": "^4.19.2",
+    "mssql": "^10.0.2",
     "react": "18.2.0",
-    "react-native": "0.73.6",
-    "react-native-web": "~0.19.10",
     "react-dom": "18.2.0",
-    "@expo/metro-runtime": "~3.2.1"
+    "react-native": "0.73.6",
+    "react-native-web": "^0.19.12"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "expo": "~51.0.0"
+    "expo": "^51.0.12"
   },
-  "private": true
+  "private": true,
+  "description": "Esse app visa o desenvolvimento de um aplicativo que forneça treinos utilizando uma inteligência artificial para auxiliar o profissional durante a montagem de treinos para os seus alunos.",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
