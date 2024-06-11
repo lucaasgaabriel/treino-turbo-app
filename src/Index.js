@@ -3,7 +3,7 @@ import { View, Text, TextInput, TouchableOpacity, Image, Alert } from 'react-nat
 import axios from 'axios';
 import styles from './styleIndex'; // Importa os estilos do arquivo styleIndex.js
 
-const API_URL = 'http://10.12.184.134:3000'
+const API_URL = 'http://localhost:3000'
 
 const Index = ({ onLogin }) => {
   const [username, setUsername] = useState('');

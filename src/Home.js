@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity, Modal, TextInput } fro
 import axios from 'axios';
 import styles from './stylesGeral.js';
 
-const API_URL = 'http://10.12.184.134:3000';
+const API_URL = 'http://localhost:3000';
 
 // Dados dos treinos para o carrossel
 const treinosCarousel = [
